@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- <link href="{{ url_for('static', filename= 'css/styles.css') }}" rel="stylesheet"> -->
+ 
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <div>
+      <h2>Latest Mars News</h2>
+      <h3>{{planet.news_title}}</h3>
+      <p>{{planet.news_text}}</p><br>
+    </div>
+   
+    <!-- row 2 -->
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Featured Mars Image</h2>
+        <img src="{{planet.featured_image_url}}" style="height:100%; width:100%; margin-bottom: 25px; object-fit:contain"> 
+      </div>   
+      
+      <div class="col-sm-4">
+        <div style="border-style: solid; border-color:gray; border-width: thin; border-radius:2px; padding: 10px">
+          <h3>Current Weather on Mars</h3>
+          <p>{{planet.mars_weather}}</p>
+        </div>
+        
+        <h3>Mars Facts</h3>
+        <p>{{planet.mars_facts|safe}}</p>
+      </div>
+    </div> <!-- row 1 -->
+  </div> <!-- initial container -->
+    
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 align="center"> Mars Hemispheres</h2>
+      </div>
+    </div>
+
+    <!-- row 4 -->
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="{{planet.hem_image_urls[0]['image_url']}}" align="middle" style="height:90%; width:90%; object-fit:contain">
+        <h3 align="center">{{planet.hem_image_urls[0]['title']}}</h3>
+      </div> 
+      
+      <div class="col-sm-6">
+        <img src="{{planet.hem_image_urls[1]['image_url']}}" align="middle" style="height:90%; width:90%; object-fit:contain">
+        <h3 align="center">{{planet.hem_image_urls[1]['title']}}</h3>
+      </div> 
+
+      <div class="col-sm-6">
+        <img src="{{planet.hem_image_urls[2]['image_url']}}" align="middle" style="height:90%; width:90%; object-fit:contain">
+        <h3 align="center">{{planet.hem_image_urls[2]['title']}}</h3>
+      </div> 
+      
+      <div class="col-sm-6">
+        <img src="{{planet.hem_image_urls[3]['image_url']}}" align="middle" style="height:90%; width:90%; object-fit:contain">
+        <h3 align="center">{{planet.hem_image_urls[3]['title']}}</h3>
+      </div> 
+    </div>
+  </div> <!-- 2nd container -->
+
+  <!-- style="border: thin solid gray;" -->
+
+</body>
+
+</html>
